@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       
+        <record id="view_apos_session_inhert" model="ir.ui.view">
+          <field name="name">pos.session.inhert</field>
+          <field name="model">pos.session</field>
+          <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+          <field name="arch" type="xml">
+                    <xpath expr="//form/sheet/group[1]" position="after">
+                        <group>
+                            <group>
+                                <field name="account_emp"/>
+                            </group>
+                            <group>
+                                <field name="safety_emp"/>
+                            </group>
+                        </group>
+
+                    </xpath>
+                    <xpath expr="//notebook/page[1]" position="after">
+                        <page string="Comment">
+                            <field name="comment"/>
+                        </page>
+                    </xpath>
+                    <xpath expr="//notebook/page[2]" position="after">
+                        <page string="Note">
+                            <field name="note"/>
+                        </page>
+                    </xpath>
+                    <xpath expr="//notebook/page[@name='cash_control']" position="after">
+                        
+                        <page string="cash" invisible="1">
+                
+                            <field name="cash_box">
+                                <tree string ="Coins" editable="bottom">
+                                  
+                                        <field name="number"/>
+                                        <field name="coin_value"/>
+                                        <field name="subtotal"/> 
+                                     
+                                </tree>
+                            </field>
+                        </page>
+                    </xpath>
+                </field>
+            </record>
+        </data>
+    </odoo>
